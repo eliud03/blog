@@ -23,4 +23,13 @@ class Blog_model extends CI_Model {
                 return $this->db->get('comments')->result();
         }
 
+        public function validate_user($username){
+                $this->db->where('username', $username);
+                return $this->db->get('users')->row();
+        }
+
+        public function validate_email($email){
+                $this->db->where('email', $email);
+                return $this->db->get('users')->row();
+        }
 }
